@@ -226,6 +226,7 @@ $(function () {
                 $leds.find('.item[data-row=' + i + '][data-col=' + j + '] ').toggleClass('active', active);
             }
         }
+        showByteToText();
     }
     function changeInputByte(){
     	var string = $('#byte-input').val();
