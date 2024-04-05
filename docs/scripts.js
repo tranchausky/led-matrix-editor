@@ -233,7 +233,10 @@ $(function () {
     	var listRow = string.split('\n');
     	var strat;
     	$('#leds-matrix tr').each(function(index) {
-    		strat = listRow[index].replace(/^\s+|\s+$/g, '').replace(/^B+|B+$/g, '');
+    		strat ="00000000";
+    		if( typeof listRow[index] !== 'undefined'){
+    			strat = listRow[index].replace(/^\s+|\s+$/g, '').replace(/^B+|B+$/g, '');
+    		}
     	   tem= "";
     	  $(this).find('td').each(function(intd) {
     		tem = strat[intd];
