@@ -422,7 +422,7 @@ $(function () {
     $hexInput.keyup(function () {
         hexInputToLeds();
     });
-    $('#byte-input').keyup(function () {
+    $('#byte-input').change(function () {
         changeInputByte();
     });
 
