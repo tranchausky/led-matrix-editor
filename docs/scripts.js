@@ -212,7 +212,7 @@ $(function () {
           })
           listRow.push(tem)
         })
-        $('#byte-input').text(listRow.join('\n'));
+        $('#byte-input').val(listRow.join('\n'));
     }
 
     function hexInputToLeds() {
