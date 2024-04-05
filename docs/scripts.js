@@ -200,6 +200,19 @@ $(function () {
         }
         out.reverse();
         $hexInput.val(out.join(''));
+        showByteToText();
+    }
+    function showByteToText(){
+        var listRow = [];
+        var tem = "";
+        $('#leds-matrix tr').each(function() {
+           tem= "";
+          $(this).find('td').each(function() {
+        	tem += ($(this).hasClass('active')) ? 1:0;
+          })
+          listRow.push(tem)
+        })
+        $('#byte-input').text(listRow.join('\n'));
     }
 
     function hexInputToLeds() {
