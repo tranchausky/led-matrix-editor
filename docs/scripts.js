@@ -228,7 +228,7 @@ $(function () {
         }
     }
     function changeInputByte(){
-    	var string = $('#byte-input').text();
+    	var string = $('#byte-input').val();
     	var listRow = string.split('\n');
     	var strat;
     	$('#leds-matrix tr').each(function(index) {
