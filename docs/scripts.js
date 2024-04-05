@@ -227,6 +227,22 @@ $(function () {
             }
         }
     }
+    function changeInputByte(){
+    	var string = $('#byte-input').text();
+    	var listRow = string.split('\n');
+    	var strat;
+    	$('#leds-matrix tr').each(function(index) {
+    		strat = listRow[index].replace(/^\s+|\s+$/g, '').replace(/^B+|B+$/g, '');
+    	   tem= "";
+    	  $(this).find('td').each(function(intd) {
+    		tem = strat[intd];
+    		$(this).removeClass('active')
+    		if(tem == 1){
+    			$(this).addClass('active')
+    		}
+    	  })
+    	})
+    }
 
     var savedHashState;
 
@@ -405,6 +421,9 @@ $(function () {
 
     $hexInput.keyup(function () {
         hexInputToLeds();
+    });
+    $('#byte-input').keyup(function () {
+        changeInputByte();
     });
 
     $deleteButton.click(function () {
