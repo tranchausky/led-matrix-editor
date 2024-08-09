@@ -78,7 +78,7 @@ void loop() {
 
 Connect components:
 
-![Arduino board and LED matrix](resources/MAH02145_960x540.jpg)
+![Arduino board and LED matrix](resources/last-change.png)
 
 
 See how it works and enjoy:

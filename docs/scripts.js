@@ -213,6 +213,8 @@ $(function () {
           listRow.push(tem)
         })
         $('#byte-input').val(listRow.join('\n'));
+        $('#byte-view').val('B'+listRow.join(',\nB'));
+		
     }
 
     function hexInputToLeds() {
@@ -274,6 +276,7 @@ $(function () {
         var patterns = framesToPatterns();
         printArduinoCode(patterns);
         window.location.hash = savedHashState = patterns.join('|');
+		updateLastChange();
     }
 
     function loadState() {
@@ -291,6 +294,7 @@ $(function () {
         $hexInput.val(frame.attr('data-hex'));
         printArduinoCode(patterns);
         hexInputToLeds();
+		viewLastChange();
     }
 
     function getInputHexValue() {
@@ -400,6 +404,7 @@ $(function () {
         bitmap.rotate();
         $hexInput.val(bitmap.toHexString());
         hexInputToLeds();
+		updateView();
     });
 
     $('#rotate-back-button').click(function () {
@@ -407,6 +412,7 @@ $(function () {
         bitmap.rotateBack();
         $hexInput.val(bitmap.toHexString());
         hexInputToLeds();
+		updateView();
     });
 
     $cols.find('.item').mousedown(function () {
@@ -463,7 +469,10 @@ $(function () {
     });
 
     $updateButton.click(function () {
-        var $newFrame = makeFrameElement(getInputHexValue());
+        updateView();
+    });
+	function updateView(){
+		var $newFrame = makeFrameElement(getInputHexValue());
         var $selectedFrame = $frames.find('.frame.selected').first();
 
         if ($selectedFrame.length) {
@@ -473,7 +482,7 @@ $(function () {
         }
 
         processToSave($newFrame);
-    });
+	}
 
     $('#images-as-byte-arrays').change(function () {
         var patterns = framesToPatterns();
@@ -589,5 +598,16 @@ $(function () {
     var pageTheme = Cookies.get('page-theme') || 'circuit-theme';
 
     setPageTheme(pageTheme);
+	
+	
+	function updateLastChange(){
+		var valuechange = savedHashState;
+		localStorage.setItem("lastedit", valuechange);
+	}
 
 });
+
+function viewLastChange(){
+	var list = localStorage.getItem("lastedit");
+	$('#lastchange').attr('href','#'+list);
+}

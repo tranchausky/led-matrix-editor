@@ -110,6 +110,9 @@
                     </a>
                 </li>
             </ul>
+			<ul>
+				<li>Last:<a href="#" id="lastchange" target="_blank">Last change</a></li>
+			</ul>
         </div>
         <div class="col-xs-6 col-md-3 col-md-push-6 debug">
             <div class="checkbox pull-right" style="margin-top: 25px;">
@@ -203,7 +206,8 @@
                             <br>
                             <br>
                             <label for="byte-input">Byte Row </label>
-                            <textarea rows="2" id="byte-input" placeholder="B11000000"></textarea>
+                            <textarea rows="8" id="byte-input" placeholder="B11000000"></textarea>
+                            <textarea rows="8" id="byte-view" readonly style="background-color:darkgray;"></textarea>
                         </div>
                     </td>
                 </tr>
@@ -220,7 +224,12 @@
     <div id="frames" class="row" style="clear: both; "></div>
 </div>
 
-<div class="container">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container" style="display:none;">
     <h2 id="overview">Overview</h2>
     <p>
         LED Matrix Editor - is online tool for editing and creating animations for 8x8 LED matrices.

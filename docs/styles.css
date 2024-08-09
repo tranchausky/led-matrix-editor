@@ -189,7 +189,7 @@ body.white-leds #leds-matrix .item.active {
 
 #frames {
     padding: 5px;
-    height: 200px;
+    /* height: 200px; */
     overflow-y: scroll;
     text-align: left;
     border: solid #666666 1px;
@@ -228,7 +228,8 @@ body.white-leds #leds-matrix .item.active {
 /*Themes*/
 
 .circuit-theme #circuit {
-    background-image: url('img/circuit.jpg');
+    /* background-image: url('img/circuit.jpg'); */
+	background: gainsboro;
     padding: 5px;
 }
 
